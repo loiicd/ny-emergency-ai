@@ -2,10 +2,12 @@ import pandas as pd
 
 df = pd.read_json('/Users/loic.doerr/dev/ny-emergency-ai/data/fire-incidents/interims.json')
 
-categories = df[['incident_classification', 'incident_classification_group']]
+categories = df[['incident_borough', 'zipcode', 'policeprecinct', 'citycouncildistrict', 'communitydistrict', 'communityschooldistrict', 'congressionaldistrict', 'alarm_box_number']]
 
 unique_categories = categories.drop_duplicates()
 
-category_list = unique_categories.to_dict(orient='records')
+unique_categories.to_csv('./locations.csv')
 
-print(category_list)
+# category_list = unique_categories.to_dict(orient='records')
+
+# print(category_list)
