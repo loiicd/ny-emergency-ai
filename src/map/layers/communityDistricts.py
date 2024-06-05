@@ -1,11 +1,12 @@
 import json
 import folium
+from pathlib import Path
 
 
 def createCommunityDistrictsLayer():
   community_districts_layer = folium.FeatureGroup(name='Community Districts')
 
-  with open('/Users/loic.doerr/dev/ny-emergency-ai/data/geo-data/community-districts.geojson') as rawData:
+  with open(f'{Path.cwd()}/data/geo-data/community-districts.geojson') as rawData:
     community_districts_geo = json.load(rawData)
 
   folium.GeoJson(

@@ -1,14 +1,15 @@
 import json
 import folium
 import pandas as pd
+from pathlib import Path
 
 
 def createBoroughsScoreLayer():
   boroughs_score_layer = folium.FeatureGroup(name='Bororughs Score', show=False)
 
-  df = pd.read_csv('/Users/loic.doerr/dev/ny-emergency-ai/borough_data.csv')
+  df = pd.read_csv(f'{Path.cwd()}/borough_data.csv')
 
-  with open('./data/geo-data/boroughs.geojson') as rawData:
+  with open(f'{Path.cwd()}/data/geo-data/boroughs.geojson') as rawData:
     boroughs_boundaries_geo = json.load(rawData)
 
   borough_population_density = dict(zip(df['Borough'], df['Score']))

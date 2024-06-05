@@ -1,11 +1,12 @@
 import json
 import folium
+from pathlib import Path
 
 
 def createBoroughsLayer():
   borough_layer = folium.FeatureGroup(name='Boroughs')
 
-  with open('./data/geo-data/boroughs.geojson') as rawData:
+  with open(f'{Path.cwd()}/data/geo-data/boroughs.geojson') as rawData:
     boroughs_boundaries_geo = json.load(rawData)
 
   folium.GeoJson(

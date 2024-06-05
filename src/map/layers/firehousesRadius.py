@@ -1,11 +1,12 @@
 import folium
 import pandas as pd
+from pathlib import Path
 
 
 def createFirehousesRadiusLayer():
   firehouses_radius_layer = folium.FeatureGroup(name='Firehouses Radius', show=False)
 
-  locations = pd.read_csv('/Users/loic.doerr/dev/ny-emergency-ai/data/locations/FDNY_Firehouse_Listing_20240603.csv')
+  locations = pd.read_csv(f'{Path.cwd()}/data/locations/FDNY_Firehouse_Listing_20240603.csv')
 
   for index, location in locations.iterrows():
     lat = location['Latitude']
