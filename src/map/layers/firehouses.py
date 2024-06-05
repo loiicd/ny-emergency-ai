@@ -6,7 +6,7 @@ from pathlib import Path
 def createFirehousesLayer():
   firehouses_layer = folium.FeatureGroup(name='Firehouses', show=False)
 
-  locations = pd.read_csv(f'{Path.cwd()}/data/locations/FDNY_Firehouse_Listing_20240603.csv')
+  locations = pd.read_csv(f'{Path.cwd()}/rawData/locations/FDNY_Firehouse_Listing_20240603.csv')
 
   for index, location in locations.iterrows():
     lat = location['Latitude']

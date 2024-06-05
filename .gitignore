@@ -1,4 +1,5 @@
-/data
+/preparedData
+/rawData
 /models
 /maps
 __pycache__/

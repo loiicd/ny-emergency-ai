@@ -9,7 +9,7 @@ def createBoroughsScoreLayer():
 
   df = pd.read_csv(f'{Path.cwd()}/borough_data.csv')
 
-  with open(f'{Path.cwd()}/data/geo-data/boroughs.geojson') as rawData:
+  with open(f'{Path.cwd()}/rawData/geo-rawData/boroughs.geojson') as rawData:
     boroughs_boundaries_geo = json.load(rawData)
 
   borough_population_density = dict(zip(df['Borough'], df['Score']))

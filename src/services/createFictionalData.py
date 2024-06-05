@@ -4,7 +4,7 @@ import pandas as pd
 from pathlib import Path
 
 boroughs = ['BRONX', 'MANHATTAN', 'QUEENS', 'RICHMOND / STATEN ISLAND']
-locations_df = pd.read_csv(f'{Path.cwd()}/../locations.csv')
+locations_df = pd.read_csv(f'{Path.cwd()}/../../preparedData/locations.csv')
 locations = locations_df.to_dict(orient='records')
 alarm_source_description_txs = ['Phone', 'PD Link/Medical', 'EMS Link/Medical']
 alarm_level_index_descriptions = ['Initial Alarm', 'Second Alarm', 'Third Alarm']
@@ -21,7 +21,7 @@ def createFictionalData(quantity: int, attributes: list[str]):
       "incident_datetime": datetime.datetime.today().isoformat(),
       "alarm_box_borough": location['incident_borough'],
       "alarm_box_number": locations['alarm_box_number'],
-      "alarm_box_location": location['zipcode'],
+      "alarm_box_location": location['alarm_box_location'],
       "incident_borough": location['incident_borough'],
       "zipcode": location['zipcode'],
       "policeprecinct": locations['policeprecinct'],
